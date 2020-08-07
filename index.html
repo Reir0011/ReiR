@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style>
+body {
+border-right:2px solid red;}
+.change {
+color: red;}
+.book{
+font-size:25px;
+display:flex;
+justify-content: center;
+}
+.lab{
+font-size:18px;
+color:navy;
+}
+.input1{
+width:80%;
+position:relative;
+border-radius:5px;
+height:25px;
+top:5px;
+border:1px solid black;
+font-size:17px;
+
+}
+.div{
+position:relative;
+top:30px;
+}
+
+ .input2{
+width:80%;
+position:relative;
+border-radius:5px;
+height:25px;
+top:33px;
+border:1px solid black;
+font-size:17px;}   
+.input3{
+width:80%;
+position:relative;
+border-radius:5px;
+height:25px;
+top:63px;
+border:1px solid black;
+font-size:17px;}
+.div1{
+position:relative;
+top:60px;
+}
+
+#but{
+position:relative;
+top:90px;
+width:100%;
+display:flex;
+justify-content:center;
+height:30px;
+font-weight:bold;
+color: White;
+background: red;}
+
+#move{
+position:relative;
+top:150px;
+width:100%;
+border-collapse:collapse;}
+.rea{
+border-top:1px solid black;
+border-bottom:1px solid black;
+width:35%;
+border-collapse:collapse;
+border-collapse:collapse;
+height:30px;
+}
+table {
+border-collapse:collapse;}
+tr{
+border-collapse:collapse;}
+.navy{
+color:black;}
+ </style>
+        <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="Css.css"/>
+        <title>Booklist App</title>
+    </head>
+    <body><div class="container"><header>
+        <h1>
+            <div class="book"><span class="change">My</span><span class="navy">Booklist</span></div>
+           
+        </h1></header>
+        
+        <section>
+            <label><div class="lab"><b>Title:</b></div></label>
+            <div><input type="text" id="id1" class="input1"></div>
+            
+            <div class="div"><label class="lab"><b>Author:</b></label></div>
+            <input type="text" class="input2">
+                  
+            <div class="div1"><label class="lab"><b>Niche:</b></label></div>
+            <input type="text" class="input3">
+            
+            <button id="but">Add Book</button>
+        </section>
+        <article id="move">
+            <table>
+                <thead>
+                <tr>
+                    <th class="rea">Title</th>
+                    <th class="rea">Author<th/>
+                        <th class="rea">Niche</th>
+                       <th></th>
+                </tr>
+           </thead> <tbody class="art"></tbody></table>
+        </article>
+   </div> </body>
+        
+        
+        <script>
+class Book{
+constructor(Title,Author, Niche){
+this.Title=Title;
+this.Author=Author;
+this.Niche=:Niche;}   
+
+class UI{
+static displayBooks(){
+const StorageBooks=[
+{
+title='Book One';
+Author='ReiR';
+Niche='Science Fiction';},
+{
+title='Book two';
+Author='Ire';
+Niche='Comedy';
+}];
+const books=StorageBooks;
+
+books.forEach((book)=>UI.addBookToList(book));
+
+}
+static addBookToList(book){
+const list=document.querySelector('.art');
+const row=document.createElement('tr');
+row.innerHTML=`
+<td>$(book.title)</td>
+<td>$(book.author)</td>
+<td>$(book.Niche)</td>
+<td><a href="#" >X</a></td>
+`;
+
+list.appendChild(row);
+}
+}
+
+document.addEventListener('DOMContentLoaded', UI.displayBooks);
+
+        </script>
+        
+        
+</html>
